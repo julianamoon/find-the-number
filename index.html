@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find The Number</title>
+
+    <!-- css -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <section class="game-container">
+        <div class="game-section-1">
+            <div class="header">
+                <h1>Find The Number</h1>
+                <p>Press <span class="fun">get the number</span> to randomize a number <span class="fun">between 0 and 99</span>.</p>
+            </div>
+
+            <div class="the-number">
+                <div class="number-div">
+                    <div class="number-wall"></div>
+                    <span id="number">0</span>
+                </div>
+
+                <button class="number-btn btn">Get The Number</button>
+            </div>
+                
+            <div class="the-answer">
+                <div class="answer-div">
+                    <label for="answer-input">Final Answer:</label>
+                    <input type="text" id="answer-input">
+                </div>
+                
+                <button class="answer-btn btn">Reveal The Number</button>
+            </div>
+        </div>
+
+        <div class="game-section-2">
+            <div class="the-guess">
+                <label for="guess-input">Guess Two Numbers:</label>
+                <input type="text" id="guess-input">
+                <input type="text" id="guess-input-2">
+                <button class="send-btn btn">Send</button>
+            </div>
+
+            <div class="questions">
+                <div class="question">
+                    <p>Is your number bigger than <span class="span-guess-max">...</span>?</p>
+                    <span class="question-answer" id="boolean1"></span>
+                </div>
+
+                <div class="question">
+                    <p>Is your number less than <span class="span-guess-min">...</span>?</p>
+                    <span class="question-answer" id="boolean2"></span>
+                </div>
+
+                <div class="question">
+                    <p>Is your number between <span class="span-guess-min">...</span> and <span class="span-guess-max">...</span>?</p>
+                    <span class="question-answer" id="boolean3"></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="app.js"></script>
+</body>
+</html>

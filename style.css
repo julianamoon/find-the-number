@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    
+    font-family: 'Open Sans', sans-serif;
+
+    --primary: hsla(242,100%,70%);
+}
+
+body {
+    height: 100vh;
+    background-color:hsla(0,100%,50%,1);
+    background-image:
+        radial-gradient(at 40% 20%, hsla(28,100%,74%,1) 0px, transparent 50%),
+        radial-gradient(at 80% 0%, hsla(189,100%,56%,1) 0px, transparent 50%),
+        radial-gradient(at 0% 50%, hsla(355,100%,93%,1) 0px, transparent 50%),
+        radial-gradient(at 80% 50%, hsla(340,100%,76%,1) 0px, transparent 50%),
+        radial-gradient(at 0% 100%, hsla(22,100%,77%,1) 0px, transparent 50%),
+        radial-gradient(at 80% 100%, hsla(242,100%,70%,1) 0px, transparent 50%),
+        radial-gradient(at 0% 0%, hsla(343,100%,76%,1) 0px, transparent 50%);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.game-container {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    max-width: 550px;
+    background-color: white;
+    padding: 50px;
+    border-radius: 5px;
+}
+
+.game-section-1 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.game-section-1 > * {
+    margin-bottom: 30px;
+}
+
+.number-div {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 2rem;
+}
+
+.number-wall {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 40px;
+    background: var(--primary);
+    display: block;
+}
+
+.number-btn {
+    margin-top: 15px;
+}
+
+.the-answer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.answer-btn {
+    width: 150px;
+    margin-top: 10px;
+}
+
+.btn {
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+.the-guess {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.the-guess label {
+    display: block;
+}
+
+input {
+    width: 50px;
+    padding: 0 5px;
+}
+
+.question {
+    display: flex;
+    justify-content: space-between;
+}
+
+.question-answer, .span-guess-max, .span-guess-min, .fun {
+    color: var(--primary);
+    font-weight: 700;
+}
