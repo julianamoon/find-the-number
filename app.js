@@ -1,7 +1,7 @@
 const getNumberBtn = document.querySelector('.number-btn');
 const answerBtn = document.querySelector('.answer-btn');
 let answerInput = document.getElementById('answer-input');
-const numberWall = document.querySelector('.number-wall');
+const numberWall = document.getElementById('number-wall');
 
 let input1 = document.getElementById('guess-input'); 
 let input2 = document.getElementById('guess-input-2'); 
@@ -21,8 +21,9 @@ let secondGuess = 0;
 const getRandomNumber = () => Math.floor(Math.random() * 100);
 
 getNumberBtn.addEventListener('click', (e) => {
-    numberWall.classList.add('number-wall')
+    numberWall.classList.add('number-wall');
     gameNumber.innerText = getRandomNumber();
+    return alert('You generated a number! Good luck finding out which one is it.');
 })
 
 sendBtn.addEventListener('click', (e) => {
@@ -72,16 +73,20 @@ function getBoolean2(firstGuess, onlyNumber) {
 
 
 function getBoolean3(firstGuess, secondGuess, onlyNumber) {
-    if (onlyNumber === firstGuess || onlyNumber === secondGuess) return boolean3.innerHTML = '...';
+    let fG = Number(firstGuess);
+    let sG = Number(secondGuess);
+    let oN = Number(onlyNumber);
 
-    if (firstGuess < onlyNumber) {
-        if (secondGuess < onlyNumber) {
-            return boolean3.innerText = 'No' 
-        }
-        if (secondGuess > onlyNumber) {
+    if (oN === fG || oN === sG) return boolean3.innerHTML = '...';
+
+    if (fG < oN) {
+        if (sG > oN) {
             return boolean3.innerText = 'Yes'
         }
+        if (sG < oN) {
+            return boolean3.innerText = 'No' 
+        }
+    }
 
     return boolean3.innerText = 'No'
-    }
 }

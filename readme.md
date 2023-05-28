@@ -6,3 +6,6 @@ I thought of this game when I was learning about math properties: how cool would
 
 ## The Concept
 I tried to make it as simple as I could just so I wouldn't lose myself in the project. Now that it's up, I want to make improvements as I'm learning new things. Please feel free to try it out and let me know what you think and what I could do to make this game an even better experience!
+
+## Made With
+HTML5, CSS3 & Javascript.
