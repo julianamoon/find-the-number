@@ -61,14 +61,13 @@ function getGuesses(firstGuess, secondGuess) {
 function getBoolean1(secondGuess, onlyNumber) {
     if (onlyNumber === secondGuess) return boolean1.innerHTML = '...';
     if (onlyNumber > secondGuess) return boolean1.innerText = 'Yes';
-    if (onlyNumber < secondGuess) return boolean1.innerText = 'No';
+    return boolean1.innerText = 'No';
 }
 
 function getBoolean2(firstGuess, onlyNumber) {
     if (onlyNumber === firstGuess) return boolean2.innerHTML = '...';
-
     if (onlyNumber < firstGuess) return boolean2.innerText = 'Yes';
-    if (onlyNumber > firstGuess) return boolean2.innerText = 'No';
+    return boolean2.innerText = 'No';
 }
 
 
@@ -78,7 +77,6 @@ function getBoolean3(firstGuess, secondGuess, onlyNumber) {
     let oN = Number(onlyNumber);
 
     if (oN === fG || oN === sG) return boolean3.innerHTML = '...';
-
     if (fG < oN) {
         if (sG > oN) {
             return boolean3.innerText = 'Yes'
@@ -87,6 +85,5 @@ function getBoolean3(firstGuess, secondGuess, onlyNumber) {
             return boolean3.innerText = 'No' 
         }
     }
-
     return boolean3.innerText = 'No'
 }
