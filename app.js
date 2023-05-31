@@ -24,6 +24,7 @@ const getRandomNumber = () => Math.floor(Math.random() * 100);
 getNumberBtn.addEventListener('click', (e) => {
     numberWall.classList.add('number-wall');
     randNumber = getRandomNumber();
+    gameNumber.innerText = randNumber;
     return alert('You generated a number! Good luck finding out which one is it.');
 })
 
