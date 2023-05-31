@@ -10,25 +10,25 @@ const sendBtn = document.querySelector('.send-btn');
 let guessMax = document.querySelectorAll('.span-guess-max');
 let guessMin = document.querySelectorAll('.span-guess-min');
 
-let boolean1 = document.getElementById('boolean1')
-let boolean2 = document.getElementById('boolean2')
-let boolean3 = document.getElementById('boolean3')
+let biggerLabel = document.getElementById('boolean1')
+let lesserLabel = document.getElementById('boolean2')
+let betweenLabel = document.getElementById('boolean3')
 
 let gameNumber = document.getElementById('number');
 let firstGuess = 0;
 let secondGuess = 0;
+let randNumber = 0;
 
 const getRandomNumber = () => Math.floor(Math.random() * 100);
 
 getNumberBtn.addEventListener('click', (e) => {
     numberWall.classList.add('number-wall');
-    gameNumber.innerText = getRandomNumber();
+    randNumber = getRandomNumber();
     return alert('You generated a number! Good luck finding out which one is it.');
 })
 
 sendBtn.addEventListener('click', (e) => {
-    if(input1.value === '') return;
-    if(input2.value === '') return;
+    if(input1.value === '' || input2.value === '') return;
     
     firstGuess = input1.value;
     secondGuess = input2.value;
@@ -40,7 +40,7 @@ sendBtn.addEventListener('click', (e) => {
 })
 
 answerBtn.addEventListener('click', (e) => {
-    if (!answerInput.value) { return alert('Did you even try?') }
+    if (!answerInput.value) { return alert('Did you even try? Type a number first!') }
     
     if (answerInput.value === gameNumber.innerText) {
         numberWall.classList.remove('number-wall')
@@ -51,39 +51,30 @@ answerBtn.addEventListener('click', (e) => {
 })
 
 function getGuesses(firstGuess, secondGuess) {
-    let onlyNumber = gameNumber.innerText;
-    
-    getBoolean1(secondGuess, onlyNumber);
-    getBoolean2(firstGuess, onlyNumber);
-    getBoolean3(firstGuess, secondGuess, onlyNumber);
+    IsRandomBigger(Number(secondGuess));
+    IsRandomLesser(Number(firstGuess));
+    IsRandomInBetween(Number(firstGuess), Number(secondGuess));
 }
 
-function getBoolean1(secondGuess, onlyNumber) {
-    if (onlyNumber === secondGuess) return boolean1.innerHTML = '...';
-    if (onlyNumber > secondGuess) return boolean1.innerText = 'Yes';
-    return boolean1.innerText = 'No';
+function IsRandomBigger(secondGuess) {
+    if (randNumber === secondGuess) return biggerLabel.innerHTML = '...';
+    if (randNumber > secondGuess) return biggerLabel.innerText = 'Yes';
+    return biggerLabel.innerText = 'No';
 }
 
-function getBoolean2(firstGuess, onlyNumber) {
-    if (onlyNumber === firstGuess) return boolean2.innerHTML = '...';
-    if (onlyNumber < firstGuess) return boolean2.innerText = 'Yes';
-    return boolean2.innerText = 'No';
+function IsRandomLesser(firstGuess) {
+    if (randNumber === firstGuess) return lesserLabel.innerHTML = '...';
+    if (randNumber < firstGuess) return lesserLabel.innerText = 'Yes';
+    return lesserLabel.innerText = 'No';
 }
 
 
-function getBoolean3(firstGuess, secondGuess, onlyNumber) {
-    let fG = Number(firstGuess);
-    let sG = Number(secondGuess);
-    let oN = Number(onlyNumber);
+function IsRandomInBetween(firstGuess, secondGuess) {
+    if (randNumber === firstGuess || randNumber === secondGuess) return betweenLabel.innerHTML = '...';
 
-    if (oN === fG || oN === sG) return boolean3.innerHTML = '...';
-    if (fG < oN) {
-        if (sG > oN) {
-            return boolean3.innerText = 'Yes'
-        }
-        if (sG < oN) {
-            return boolean3.innerText = 'No' 
-        }
+    if (firstGuess < randNumber && secondGuess > randNumber) {
+        return betweenLabel.innerText = 'Yes'
     }
-    return boolean3.innerText = 'No'
+
+    return betweenLabel.innerText = 'No'
 }
