@@ -1,7 +1,7 @@
 # Find The Number Game
 
 I thought of this game when I was learning about math properties: how cool would it be if there was a simple 'guess the number' game and we could generate as many numbers as we want and play as many time as we want? Of course, we would also have some clues so we wouldn't go mad trying to think of numbers randomly. <br/>
-[Live Preview](https://findthenumber-game.netlify.app/)
+[Live Preview](https://findthenumber-game.netlify.app/)<br/><br/>
 ![screenshot](./assets/find-the-number-game.png)
 
 ## The Concept
